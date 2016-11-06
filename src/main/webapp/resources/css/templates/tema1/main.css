@@ -1,0 +1,89 @@
+
+/* # Themes
+================================================== */
+.theme-dark {
+  /* General */
+
+  /* Sidebar */
+
+}
+.theme-dark #content {
+  background-color: #fbfbfb;
+}
+.theme-dark #sidebar {
+  background-color: #49647D;
+  color: #cdd0d8;
+
+}
+.theme-dark #sidebar .close {
+  color: #cdd0d8;
+}
+.theme-dark #sidebar .sidebar-search .input-box {
+  border-bottom-color: #151b22 !important;
+}
+.theme-dark #sidebar .sidebar-search input,
+.theme-dark #sidebar .sidebar-search .submit {
+  background-color: #293541 !important;
+  color: #cdd0d8;
+}
+.theme-dark #sidebar .sidebar-search-results {
+  background-color: #1f2831;
+  border-color: #151b22;
+}
+.theme-dark #sidebar ul#nav li {
+  border-bottom-color: #151b22;
+}
+.theme-dark #sidebar ul#nav li.current,
+.theme-dark #sidebar ul#nav li.open {
+  background: #334251;
+}
+.theme-dark #sidebar ul#nav li a {
+  color: #cdd0d8;
+  text-shadow: 0 1px 0 #000;
+}
+.theme-dark #sidebar ul#nav li a:hover {
+  background: #3d4e60;
+  color: #fff;
+}
+.theme-dark #sidebar ul#nav li a i {
+  color: #b0b5c2;
+}
+.theme-dark #sidebar ul#nav ul.sub-menu {
+  background: #1f2831;
+  border-bottom-color: #151b22;
+}
+.theme-dark #sidebar ul#nav ul.sub-menu li.current {
+  background: #293541;
+}
+.theme-dark #sidebar ul#nav ul.sub-menu li.open {
+  background: #1f2831;
+}
+.theme-dark #sidebar ul#nav ul.sub-menu li a:hover {
+  background: #293541;
+}
+.theme-dark #sidebar ul#nav ul.sub-menu ul.sub-menu li {
+  border-left-color: #151b22;
+}
+.theme-dark #sidebar ul#nav ul.sub-menu ul.sub-menu li a {
+  color: #b0b5c2;
+}
+.theme-dark #sidebar ul#nav ul.sub-menu ul.sub-menu li a:hover {
+  background: #293541;
+}
+.theme-dark #sidebar .sidebar-title {
+  background-color: #1f2831;
+  border-color: #151b22;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+  -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+  color: #cdd0d8;
+}
+.theme-dark #sidebar .notifications li {
+  border-bottom-color: #151b22;
+}
+.theme-dark #sidebar .notifications li a {
+  color: #cdd0d8;
+}
+.theme-dark #sidebar .notifications li a:hover {
+  color: #eaebee;
+}

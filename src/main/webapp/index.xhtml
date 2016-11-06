@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/tema1/default.xhtml">
+
+	<ui:define name="content">
+		Pagina de Bienvenida
+	</ui:define>
+
+	<ui:define name="top">
+		<ui:include src="/comun/title.xhtml" />
+	</ui:define>
+	<ui:define name="titleMenu">
+		<ui:include src="/comun/titleMenu.xhtml" />
+	</ui:define>
+
+	<ui:define name="left">
+		<ui:include src="/comun/menu.xhtml" />
+	</ui:define>
+
+	<ui:define name="bottom">
+		<ui:include src="/comun/piePagina.xhtml" />
+	</ui:define>
+
+</ui:composition>

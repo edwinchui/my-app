@@ -1,0 +1,128 @@
+*{ margin: 0; padding: 0; }*
+body { 
+	font: .8em Arial, Sans-Serif; 
+/*	line-height: 1.8em;*/ 
+	background: #454E56; 
+	color: #444; 
+}
+a {COLOR: #002747; text-decoration: none;}
+a:visited {COLOR: #002747; text-decoration: none;}
+a:hover {COLOR: #333; text-decoration: underline;}
+h2 { margin: 0 0 10px; padding: 10px 0 3px; }
+/* h3 { padding-left: 10px; color: #000; background: #D6E5FB; font-size: 1em; height: 24px; line-height: 24px; } */
+ul {  padding: 0; margin: 0 0 10px;}
+li { list-style-type: none;}
+p { margin: 5px 0 10px 0; }
+img { border: none; }
+
+#header {
+background: #012F50 url(#{request.contextPath}/resources/img/header.png) ;
+height: 130px;
+border: 1px #A0BCDD solid;
+margin-bottom: 5px; 
+}
+#header h1 {
+font-size: 30px;
+font-weight: 100;
+letter-spacing: -1px;
+padding: 30px 0px 0px 200px;
+}
+#header h1 a {
+color: #fff;
+text-decoration: none;
+padding-top: 15px;
+}
+#header h1 a:hover {
+color: #fff ;
+text-decoration: none;
+}
+#header h2 {
+	color: #eee;
+	font-size: 1.8em;
+	font-weight: 100;
+	padding: 15px 0px 0px 200px;
+	letter-spacing: -1px;
+	line-height: 12px;
+}
+#header h3 {
+	color: #eee;
+	font-size: 1em;
+	padding: 0px 20px 20px 0px;
+	text-align: right;
+
+}
+#wrap { 
+	padding: 10px 10px 3px 10px;
+	width: 95%; 
+	margin:5px auto; 
+	background: #012F50; 
+}
+.right { 
+	width:2000px;
+	border-width: 8px;
+	padding: 5px;
+	border-style: solid;
+	border-color: #DDDDDD;
+	background-color: white;
+	vertical-align: top; 
+}
+.right h1{ 
+	font-size: 1.4em;
+	border-bottom: 1px solid;
+	margin-bottom: 10px;
+}
+
+.right .formulario .label{ 
+	display: inline-block;
+	line-height: 1.8;
+	width: 30%;
+	font-size: 1em;
+	font-weight: bold;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.right .formulario  ol {
+  margin: 0;
+  padding: 0;
+}
+.right .formulario  li {
+  list-style: none;
+  padding: 5px;
+  margin: 0;
+}
+
+.right .formulario  li ol{
+  list-style: none;
+  padding: 5px 0px 0px 30%;
+  margin: 0;
+}
+
+	
+#footer { 
+	font-size: 0.85em; 
+	text-align: center; 
+	border-top: 1px solid #ccc; 
+	padding: 10px 5px; 
+	color: #fff;
+}
+#footer  a {
+	color: #fff;
+	text-decoration: none;
+}
+#footer a:hover {
+	color: cyan;
+	text-decoration: none;
+}
+.flash {
+	margin: 10px 10px 10px 10px;
+	padding: 10px 10px 10px 10px;
+	border: 1px solid #ccc;
+	background: cyan;
+	display: block;
+}
+
+/* PrimeFaces personalización */
+.ui-messages-error-summary{
+    font-size: 90%;
+}

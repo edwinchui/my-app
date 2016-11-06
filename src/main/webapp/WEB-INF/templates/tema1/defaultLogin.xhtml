@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet name="css/default.css" />
+	<h:outputStylesheet name="css/bcb.css" />
+	<h:outputStylesheet name="css/templates/tema1/main.css" />
+	<h:outputStylesheet name="css/templates/tema1/melon.css" />
+	<h:outputStylesheet name="css/templates/tema1/default.css" />
+	<h:outputStylesheet name="css/templates/tema1/login.css" />
+	<h:outputScript name="js/funciones.js" />
+
+	<meta name="viewport"
+		content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+	<link
+		href="#{request.contextPath}/resources/css/bootstrap/bootstrap.css"
+		rel="stylesheet" type="text/css" />
+	<!-- jQuery UI -->
+	<!--<link href="#{request.contextPath}/resources/css/bootstrap/plugins/jquery-ui/jquery-ui-1.10.2.custom.css" rel="stylesheet" type="text/css" />-->
+	<!--[if lt IE 9]>
+		<link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/bootstrap/plugins/jquery-ui/jquery.ui.1.10.2.ie.css"/>
+	<![endif]-->
+	<link href="#{request.contextPath}/resources/css/bootstrap/icons.css"
+		rel="stylesheet" type="text/css" />
+	<link
+		href="#{request.contextPath}/resources/css/bootstrap/responsive.css"
+		rel="stylesheet" type="text/css" />
+	<link rel="stylesheet"
+		href="#{request.contextPath}/resources/css/bootstrap/fontawesome/font-awesome.min.css" />
+	<!--[if IE 7]>
+		<link rel="stylesheet" href="#{request.contextPath}/resources/css/bootstrap/fontawesome/font-awesome-ie7.min.css"/>
+	<![endif]-->
+
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/bootstrap/bootstrap.js"></script>
+	<!--[if lt IE 9]>
+		<script src="#{request.contextPath}/resources/js/bootstrap/libs/html5shiv.js"></script>
+	<![endif]-->
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/bootstrap/libs/breakpoints.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/bootstrap/plugins/slimscroll/jquery.slimscroll.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/bootstrap/plugins/slimscroll/jquery.slimscroll.horizontal.js"></script>
+	<script type="text/javascript"
+		src="#{request.contextPath}/resources/js/bootstrap/app.js"></script>
+	<title>..:: Banco Central de Bolivia ::..</title>
+</h:head>
+
+<h:body class="login">
+	<ui:insert name="top">Top</ui:insert>
+	<h:form id="formLogin" styleClass="form-vertical login-form">
+		<!-- Login Box -->
+		<div class="box">
+			<div class="content">
+				<!-- Login Formular -->
+				<div styleClass="form-vertical login-form">
+					<!-- Title -->
+					<p:focus context="formLogin" />
+					<h3 class="form-title">Por favor ingrese sus credenciales</h3>
+					<h:panelGroup styleClass="flash"
+						rendered="#{flash.mensaje != null}">#{flash.mensaje}</h:panelGroup>
+					<ui:insert name="content">Content</ui:insert>
+					<p:messages id="messages" showDetail="true" showSummary="false"
+						autoUpdate="true" closable="true" />
+					<!-- Form Actions -->
+					<div class="form-actions">
+						<p:commandButton value="Entrar" update="messages"
+							actionListener="#{loginController.eventoLogin}" />
+					</div>
+				</div>
+				<!-- /Login Formular -->
+			</div>
+			<!-- /.content -->
+		</div>
+	</h:form>
+	<!-- /Login Box -->
+	<div class="footer">
+		<ui:insert name="bottom">Bottom</ui:insert>
+	</div>
+</h:body>
+
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:view>
+		<h:form id="formTitleMenu">
+			<h:outputLink value="#" onclick="return false;" id="datosUsuario">
+				<i class="icon-male"></i>
+				<span class="username">#{request.userPrincipal.name} #{sessionScope['NOMBRE_COMPLETO']}</span>
+				<i class="icon-caret-down small"></i>
+			</h:outputLink>
+			<p:menu id="listTitleMenu" styleClass="listTitleMenu" overlay="true" trigger="datosUsuario" my="left top"
+				at="rigth bottom" >
+				<p:menuitem ajax="false" value="Cambio de Contraseña"
+					process="@this"
+					action="/seguridad/cambioPassword?faces-redirect=true"
+					icon="ui-icon-person"/>
+				<p:separator />
+				<p:menuitem ajax="false" value="Salir" process="@this"
+					url="/logout?faces-redirect=true" icon="ui-icon-key" />
+			</p:menu>
+			
+		</h:form>
+	</f:view>
+
+</ui:composition>

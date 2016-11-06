@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet name="css/default.css" />
+	<h:outputStylesheet name="css/bcb.css" />
+	<h:outputStylesheet name="css/templates/tema2/default.css" />
+	<h:outputStylesheet name="css/templates/tema2/main.css" />
+	<h:outputScript name="js/funciones.js" />
+
+	<title>..:: Banco Central de Bolivia ::..</title>
+
+</h:head>
+
+<h:body>
+
+	<ui:insert name="top">Top</ui:insert>
+	<table cellspacing="5px" width="98%" align="center">
+		<tr>
+			<td id="top" colspan="2">
+				<div id="wrap">
+					<div id="header">
+						<br />
+						<div id="titulo1">#{msgs.nombre_aplicacion}</div>
+						<div id="titulo2">Banco Central de Bolivia</div>
+						<div id="titulo3">
+							Bienvenido #{request.userPrincipal.name} <br />#{sessionScope['NOMBRE_COMPLETO']}<br />
+						</div>
+						<div>
+							<div id="titulo5">
+								Fecha:
+								<h:outputText value="#{menuController.fechaActual}">
+									<f:convertDateTime pattern="dd-MM-yyyy" />
+								</h:outputText>
+							</div>
+							<div id="titulo4">
+								<a href="#{request.contextPath}/logout">#{msgs.salir}</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td id="left"><ui:insert name="left">Left</ui:insert></td>
+			<td id="content">
+				<!-- <h:panelGroup rendered="false"> --> <h:panelGroup
+					styleClass="flash" rendered="#{flash.mensaje != null}">#{flash.mensaje}</h:panelGroup>
+
+				<!-- </h:panelGroup> --> <p:panel>
+					<ui:insert name="content">Content</ui:insert>
+				</p:panel>
+			</td>
+		</tr>
+		<tr>
+			<td id="bottom" colspan="2"><ui:insert name="bottom">Bottom</ui:insert>
+			</td>
+		</tr>
+	</table>
+</h:body>
+
+</html>

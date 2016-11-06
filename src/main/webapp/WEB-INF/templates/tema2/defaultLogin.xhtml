@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet name="css/default.css" />
+	<h:outputStylesheet name="css/bcb.css" />
+	<h:outputStylesheet name="css/templates/tema2/default.css" />
+	<h:outputScript name="js/funciones.js" />
+
+	<title>..:: Banco Central de Bolivia ::..</title>
+</h:head>
+
+<h:body>
+	<table id="login" cellspacing="5px" width="100%" align="center">
+		<tr>
+			<td id="top" colspan="2">
+				<div id="wrap">
+					<div class="banner-overlay"></div>
+					<ui:insert name="top">Top</ui:insert>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td id="content"><p:panel>
+					<h2 align="center">Bienvenido al Sistema</h2>
+					<h:form>
+						<h:panelGroup styleClass="flash"
+							rendered="#{flash.mensaje != null}">#{flash.mensaje}</h:panelGroup>
+						<div align="center">
+							<p:panel header="Por favor ingrese sus credenciales."
+								style="width : 350px;">
+								<ui:insert name="content">Content</ui:insert>
+								<h:outputText value="" />
+								<p:commandButton value="Entrar" update="messages"
+									actionListener="#{loginController.eventoLogin}" />
+								<p:messages id="messages" showDetail="true" showSummary="false"
+									autoUpdate="true" closable="true" />
+							</p:panel>
+						</div>
+					</h:form>
+				</p:panel></td>
+		</tr>
+		<tr>
+			<td id="bottom" colspan="2"><ui:insert name="bottom">Bottom</ui:insert>
+			</td>
+		</tr>
+	</table>
+</h:body>
+
+</html>

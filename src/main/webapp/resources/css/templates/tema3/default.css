@@ -1,0 +1,15 @@
+/**
+	Cambios para primefaces y la plantilla 
+*/
+
+header a:link,header a:visited,header a:hover, 
+header a:link:hover,header a:visited:hover{
+	color:#ffffff;
+	text-decoration: none;
+}
+
+a:link:hover,a:visited:hover {
+	color: #045491;
+	font-weight: bold;
+	text-decoration: underline;
+}

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:view>
+		<h:form id="formMenu">
+
+			<p:panelMenu id="panelMenu">
+				<p:submenu label="Gestión de Usuarios">
+					
+					<p:menuitem ajax="false" value="Lista de Usuarios" 
+						process="@this" actionListener="#{menuController.eventoMenu}"
+						action="/pages/adm_usuarios/lista_usuarios?faces-redirect=true"></p:menuitem>
+
+				</p:submenu>
+
+			</p:panelMenu>
+
+		</h:form>
+
+	</f:view>
+
+</ui:composition>

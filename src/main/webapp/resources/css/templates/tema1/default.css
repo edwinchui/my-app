@@ -1,0 +1,205 @@
+/**
+	Cambios para primefaces y la plantilla 
+*/
+header a:link,header a:visited,header a:hover,header a:link:hover,header a:visited:hover
+	{
+	color: #ffffff;
+	text-decoration: none;
+}
+
+a:link:hover,a:visited:hover {
+	color: #045491;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+/*#content {
+	padding-top: 20px !important;
+}*/
+
+#sidebar .resizeable {
+	cursor: col-resize !important;
+	background:
+		url(#{request.contextPath}/resources/img/sidebar-divider-dots.png)
+		100px 50% no-repeat #ececec !important;
+}
+
+.ui-widget {
+	font-size: 13px;
+}
+
+#sidebar .ui-panelmenu .ui-widget {
+	overflow: hidden;
+}
+
+a.navbar-brand:link:hover {
+	text-decoration: none;
+}
+
+#formMenu .ui-state-default a {
+	border-bottom-color: #151b22;
+	color: #cdd0d8;
+	text-shadow: 0 1px 0 #000;
+}
+
+#formMenu .ui-state-default  .ui-state-hover {
+	background: rgba(255, 255, 255, 0.21) !Important;
+}
+
+#formMenu  div.ui-widget-content {
+	background-image: none !important;
+	background-color: transparent !important;
+	border: none !important;
+}
+
+#formMenu a:link,#formMenu a:visited {
+	color: #F5F3EC !important;
+	text-shadow: 0 1px 0 #000 !important;
+	/*font-weight: bold;*/
+	text-decoration: none;
+}
+
+#formMenu #sidebar {
+	overflow: hidden !important;
+}
+
+#formMenu .ui-menuitem-link {
+	padding-left: 35px;
+	content: "\f105";
+}
+
+#formMenu .ui-menuitem-link:link:hover {
+	background: rgba(255, 255, 255, 0.21) !important;
+	margin-right: 2px;
+}
+
+#formMenu .ui-state-active {
+	border-right: 2px solid #6FA7D1 !important;
+	background: rgba(255, 255, 255, 0.21) !important;
+	margin-right: 2px;
+}
+
+.navbar {
+	background-image: radial-gradient(at 50% 50%, #035981 0%, #043E60 100%)
+		!important;
+}
+
+.navbar .banner-overlay {
+	background-image:
+		url(#{request.contextPath}/resources/img/fondoLogin.jpg);
+	background-size: cover;
+	background-position: 50% 30%;
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1002;
+	opacity: 0.1;
+}
+
+#formMenu .ui-state-hover,#formMenu .ui-widget-content .ui-state-hover {
+	background: rgba(255, 255, 255, 0.21) !important;
+}
+
+.keep-session {
+	color: #797777;
+	font-size: 11px !important;
+	font-weight: 600;
+}
+
+.navbar .navbar-title {
+	margin-top: -15px;
+	float: left;
+	padding: 0;
+	color: #FFFFFF;
+	text-shadow: 0 1px 0 #000000;
+	width: 250px;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	text-align: left;
+	padding-left: 0;
+	max-width: none;
+	margin-left: 5px !important;
+	margin-right: 0;
+	font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar .navbar-title span {
+	font-size: 11px;
+	font-weight: normal;
+}
+
+.navbar .navbar-title .entityName {
+	text-overflow: ellipsis;
+	overflow-x: hidden;
+	font-size: 15px;
+}
+
+.navbar .navbar-title .systemName {
+	text-overflow: ellipsis;
+	overflow-x: hidden;
+	font-size: 18px;
+}
+
+.navbar .nav>li>form>a {
+	font-size: 13px;
+	text-shadow: 0 1px 0 #000000;
+	padding-top: 14px;
+	padding-bottom: 14px;
+	padding-left: 18px;
+	padding-right: 18px;
+}
+
+.navbar .nav>li>form>a:hover {
+	background-color: rgba(249, 247, 247, 0.09);
+}
+
+.login .nameSystem {
+	padding: 15px;
+	font-size: 25px;
+	margin: 0 auto;
+	text-align: center;
+	color: #ffffff;
+}
+
+.navbar .navbar-brand {
+	margin-top: -45px !important;
+	margin-left: -10px !important;
+	width: 255px !important;
+}
+
+.login {
+	padding-top: 40px !important;
+	background: radial-gradient(at 50% 50%, #035981 0%, #043E60 100%)
+		!important;
+}
+
+#sidebar {
+	background: radial-gradient(at 50% 50%, rgba(4, 75, 112, 0.91) 0%,
+		rgba(42, 64, 83, 0.91) 100% ) !important;
+}
+
+.navbar-fixed-top {
+	border-width: 0 0 3px !important;
+}
+
+/*cambio en los checkbox*/
+.panelCheckbox {
+	height: 180px;
+	min-height: 180px;
+	position: relative;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+
+.panelCheckbox table tr {
+	border-bottom: solid 1px #A6C9E2;
+
+	}
+.panelCheckbox label {
+	font-weight: normal !important;
+  font-size: 10px !important;
+	}

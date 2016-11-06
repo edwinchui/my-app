@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+	<f:view>
+		<h:outputStylesheet name="css/bcb.css" />
+
+		<script type="text/javascript">
+		//Manejo de  sesiones
+		var redirectPage = "#{request.contextPath}/logout";
+		// ------------
+		function redireccionarPagina(){
+			PF('avisoFueraSession').show();
+		  	//window.location.href = redirectPage;
+		    return;
+		}
+		function logout(){
+			window.location.href = redirectPage;
+		}
+		//----------
+		</script>
+		<h:form prependId="false">
+			<!-- Fuera de session -->
+			<p:dialog id="idAvisoFueraSession" header="Aviso"
+				widgetVar="avisoFueraSession" width="200" closable="false"
+				visible="false" resizable="false" modal="true">
+				<h:outputText value="Su sesion ha expirado!" />
+				<f:facet name="footer">
+					<center>
+						<p:commandButton value="OK"
+							onclick="PF('avisoFueraSession').hide(); logout();" />
+					</center>
+				</f:facet>
+			</p:dialog>
+			<!-- ************************* -->
+			<!-- Tiempo de Sesion expirado -->
+			<!-- ************************* -->
+			<!-- 60000 = 1 minuto ; 900000 = 15 minutos -->
+			<p:idleMonitor timeout="180000" onidle="redireccionarPagina()" />
+		</h:form>
+
+		<p:ajaxStatus onstart="PF('statusDialog').show();"
+			onsuccess="PF('statusDialog').hide();" />
+		<p:dialog modal="true" widgetVar="statusDialog"
+			header="Procesando...... espere por favor" draggable="false"
+			closable="false">
+			<p:graphicImage value="/resources/img/ajaxloadingbar.gif" />
+		</p:dialog>
+	</f:view>
+</ui:composition>
