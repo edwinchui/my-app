@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	template="/WEB-INF/templates/tema1/default.xhtml">
+
+	<ui:define name="content">
+		<h:form id="formPrincipal">
+		
+			<p:growl id="mensajePrincipal" showDetail="true" showSummary="false" />
+			
+			<p:panel id="pnlBusquedaUsuario" header="Busqueda Usuarios">
+				<p:dataGrid columns="4">
+					<p:outputLabel for="txtNombre" value="Nombre:" />
+					<h:outputText id="txtNombre" value="#{mbGestionUsuarios.usuarioBusqueda.persona.nombres}" />
+					
+					<p:outputLabel for="txtApellidos" value="Apellidos" />
+					<h:outputText id="txtApellidos" value="#{mbGestionUsuarios.usuarioBusqueda.persona.primerApellido}" />
+					
+					<p:outputLabel for="txtDocumento" value="Numero Documento:" />
+					<h:outputText value="#{mbGestionUsuarios.usuarioBusqueda.persona.nroDocumento}" />
+					
+					<p:outputLabel for="slcTipoDocumento" value="Tipo Documento:" />
+					<p:selectOneMenu id="slcTipoDocumento" value="#{mbGestionUsuarios.usuarioBusqueda.persona.tipoDocumento}">
+						<f:selectItem itemValue="" itemLabel="Seleccione..."/>
+						<f:selectItems value="#{mbGestionUsuarios.tipoDocs}" />
+					</p:selectOneMenu>
+					
+					<f:facet name="footer">
+						<p:commandButton id="btnBuscar" value="Buscar" />
+						<p:commandButton id="btnLimpiar" value="Limpiar" />
+					</f:facet>
+				</p:dataGrid>
+			</p:panel>
+		
+		</h:form>
+	</ui:define>
+
+	<ui:define name="top">
+		<ui:include src="/comun/title.xhtml" />
+	</ui:define>
+	<ui:define name="titleMenu">
+		<ui:include src="/comun/titleMenu.xhtml" />
+	</ui:define>
+
+	<ui:define name="left">
+		<ui:include src="/comun/menu.xhtml" />
+	</ui:define>
+
+	<ui:define name="bottom">
+		<ui:include src="/comun/piePagina.xhtml" />
+	</ui:define>
+
+</ui:composition>
