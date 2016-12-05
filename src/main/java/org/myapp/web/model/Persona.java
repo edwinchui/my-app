@@ -37,7 +37,7 @@ public class Persona implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
-    private Integer id;
+    private Long id;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 50)
@@ -45,14 +45,9 @@ public class Persona implements Serializable {
     private String nombres;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "primer_apellido")
-    private String primerApellido;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 20)
-    @Column(name = "segundo_apellido")
-    private String segundoApellido;
+    @Size(min = 1, max = 150)
+    @Column(name = "apellidos")
+    private String apellidos;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 2)
@@ -79,26 +74,25 @@ public class Persona implements Serializable {
     public Persona() {
     }
 
-    public Persona(Integer id) {
+    public Persona(Long id) {
         this.id = id;
     }
 
-    public Persona(Integer id, String nombres, String primerApellido, String segundoApellido, String tipoDocumento, String nroDocumento, String expedido, String estado) {
+    public Persona(Long id, String nombres, String apellidos, String tipoDocumento, String nroDocumento, String expedido, String estado) {
         this.id = id;
         this.nombres = nombres;
-        this.primerApellido = primerApellido;
-        this.segundoApellido = segundoApellido;
+        this.apellidos = apellidos;
         this.tipoDocumento = tipoDocumento;
         this.nroDocumento = nroDocumento;
         this.expedido = expedido;
         this.estado = estado;
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -110,20 +104,12 @@ public class Persona implements Serializable {
         this.nombres = nombres;
     }
 
-    public String getPrimerApellido() {
-        return primerApellido;
+    public String getApellidos() {
+        return apellidos;
     }
 
-    public void setPrimerApellido(String primerApellido) {
-        this.primerApellido = primerApellido;
-    }
-
-    public String getSegundoApellido() {
-        return segundoApellido;
-    }
-
-    public void setSegundoApellido(String segundoApellido) {
-        this.segundoApellido = segundoApellido;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getTipoDocumento() {

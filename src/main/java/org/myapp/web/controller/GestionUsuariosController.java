@@ -27,6 +27,7 @@ public class GestionUsuariosController implements Serializable {
 	private CommonService servCommon;
 	
 	private Usuario usuarioBusqueda;
+	private Usuario usuario;
 	
 	private List<Usuario> listaUsuarios;
 	private HashMap<String, String> tipoDocs;
@@ -38,6 +39,11 @@ public class GestionUsuariosController implements Serializable {
 		
 		this.listaUsuarios = this.servGestionUsuarios.getUsuariosActivos();
 		this.tipoDocs = this.servCommon.getListaTipoDocumentos();
+	}
+	
+	public void eventoNuevoUsuario() {
+		this.usuario = new Usuario();
+		this.usuario.setPersona(new Persona());
 	}
 
 	public Usuario getUsuarioBusqueda() {
@@ -62,6 +68,14 @@ public class GestionUsuariosController implements Serializable {
 
 	public void setTipoDocs(HashMap<String, String> tipoDocs) {
 		this.tipoDocs = tipoDocs;
+	}
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 }

@@ -11,30 +11,98 @@
 		
 			<p:growl id="mensajePrincipal" showDetail="true" showSummary="false" />
 			
+			<!-- Busqueda de Usuario -->
 			<p:panel id="pnlBusquedaUsuario" header="Busqueda Usuarios">
-				<p:dataGrid columns="4">
-					<p:outputLabel for="txtNombre" value="Nombre:" />
-					<h:outputText id="txtNombre" value="#{mbGestionUsuarios.usuarioBusqueda.persona.nombres}" />
+				<p:panelGrid>
+					<p:row>
+						<p:column>
+							<p:outputLabel for="txtNombre" value="Nombre:" />
+						</p:column>
+						<p:column>
+							<p:inputText id="txtNombre" value="#{mbGestionUsuarios.usuarioBusqueda.persona.nombres}" />
+						</p:column>
+						<p:column>
+							<p:outputLabel for="txtApellidos" value="Apellidos" />
+						</p:column>
+						<p:column>
+							<p:inputText id="txtApellidos" value="#{mbGestionUsuarios.usuarioBusqueda.persona.apellidos}" />
+						</p:column>
+					</p:row>
 					
-					<p:outputLabel for="txtApellidos" value="Apellidos" />
-					<h:outputText id="txtApellidos" value="#{mbGestionUsuarios.usuarioBusqueda.persona.primerApellido}" />
-					
-					<p:outputLabel for="txtDocumento" value="Numero Documento:" />
-					<h:outputText value="#{mbGestionUsuarios.usuarioBusqueda.persona.nroDocumento}" />
-					
-					<p:outputLabel for="slcTipoDocumento" value="Tipo Documento:" />
-					<p:selectOneMenu id="slcTipoDocumento" value="#{mbGestionUsuarios.usuarioBusqueda.persona.tipoDocumento}">
-						<f:selectItem itemValue="" itemLabel="Seleccione..."/>
-						<f:selectItems value="#{mbGestionUsuarios.tipoDocs}" />
-					</p:selectOneMenu>
+					<p:row>
+						<p:column>
+							<p:outputLabel for="txtDocumento" value="Numero Documento:" />
+						</p:column>
+						<p:column>
+							<p:inputText id="txtDocumento" value="#{mbGestionUsuarios.usuarioBusqueda.persona.nroDocumento}" />
+						</p:column>
+						<p:column>
+							<p:outputLabel for="slcTipoDocumento" value="Tipo Documento:" />
+						</p:column>
+						<p:column>
+							<p:selectOneMenu id="slcTipoDocumento" value="#{mbGestionUsuarios.usuarioBusqueda.persona.tipoDocumento}">
+								<f:selectItem itemValue="" itemLabel="Seleccione..."/>
+								<f:selectItems value="#{mbGestionUsuarios.tipoDocs}" />
+							</p:selectOneMenu>
+						</p:column>
+					</p:row>
 					
 					<f:facet name="footer">
 						<p:commandButton id="btnBuscar" value="Buscar" />
 						<p:commandButton id="btnLimpiar" value="Limpiar" />
 					</f:facet>
-				</p:dataGrid>
+				</p:panelGrid>
 			</p:panel>
-		
+			
+			<!-- Lista de Usuarios -->
+			<p:panel id="pnlListaUsuarios" header="Lista de Usuarios">
+				<p:contextMenu for="tblListaUsuarios">
+					<p:menuitem 
+							value="Nuevo" icon="ui-icon-person" 
+							process="@this" action="#{mbGestionUsuarios.eventoNuevoUsuario}" 
+							oncomplete="PF('dlgAddEditUsuario').show" update=":formPrincipal:dlgAddEditUsuario" />
+				</p:contextMenu>
+			
+				<p:dataTable 
+						id="tblListaUsuarios" 
+						value="#{mbGestionUsuarios.listaUsuarios}" var="usuario"
+						emptyMessage="No exixten registro para mostrar">
+					<p:column headerText="Nombre de Usuario">
+						<h:outputText value="#{usuario.loginUsuario}" />
+					</p:column>
+					<p:column headerText="Nombre">
+						<h:outputText value="#{usuario.persona.nombres}" />
+					</p:column>
+					<p:column headerText="Apellidos">
+						<h:outputText value="#{usuario.persona.apellidos}" />
+					</p:column>
+					<p:column headerText="Correo Electronico">
+						<h:outputText value="#{usuario.correoElectronico}" />
+					</p:column>
+					<p:column headerText="Documento Identificacion">
+						<h:outputText value="#{usuario.persona.nroDocumento} #{usuario.persona.expedido}" />
+					</p:column>
+				</p:dataTable>
+			</p:panel>
+			
+			<!-- Adicionar/Editar Usuario -->
+			<p:dialog id="dlgAddEditUsuario" modal="true" header="Nuevo Usuario">
+				<h:panelGrid id="pnlAddEditUsuario" columns="3" cellspacing="4">
+					<p:outputLabel for="txtLoginUsuario" value="Nombre de Usuario:" />
+					<p:inputText id="txtLoginUsuario" value="#{mbGestionUsuarios.usuario.loginUsuario}" />
+					<p:message for="txtLoginUsuario" />
+					
+					<p:outputLabel for="txtNombreUsuario" value="Nombre Completo:" />
+					<p:inputText id="txtNombreUsuario" value="#{mbGestionUsuarios.usuario.persona.nombres}" />
+					<p:message for="txtNombreUsuario" />
+					
+					<p:outputLabel for="txtApellidosUsuario" value="Apellidos:" />
+					<p:inputText id="txtApellidosUsuario" value="#{mbGestionUsuarios.usuario.persona.apellidos}" />
+					<p:message for="txtApellidosUsuario" />
+					
+					
+				</h:panelGrid>
+			</p:dialog>
 		</h:form>
 	</ui:define>
 

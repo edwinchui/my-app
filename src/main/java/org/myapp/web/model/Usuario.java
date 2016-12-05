@@ -148,8 +148,8 @@ public class Usuario implements Serializable {
         return persona;
     }
 
-    public void setPersona(Persona idPersona) {
-        this.persona = idPersona;
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
 
     @Override
