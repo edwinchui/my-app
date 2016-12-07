@@ -56,17 +56,19 @@
 			
 			<!-- Lista de Usuarios -->
 			<p:panel id="pnlListaUsuarios" header="Lista de Usuarios">
-				<p:contextMenu for="tblListaUsuarios">
-					<p:menuitem 
-							value="Nuevo" icon="ui-icon-person" 
-							process="@this" action="#{mbGestionUsuarios.eventoNuevoUsuario}" 
-							oncomplete="PF('dlgAddEditUsuario').show" update=":formPrincipal:dlgAddEditUsuario" />
-				</p:contextMenu>
+				<p:toolbar>
+					<f:facet name="left">
+						<p:commandButton value="Nuevo" icon="ui-icon-person" process="@this" actionListener="#{mbGestionUsuarios.eventoNuevoUsuario}" update="dlgAddEditUsuario" oncomplete="PF('wdgAddEditUsuario').show()" />
+					</f:facet>
+				</p:toolbar>
+			
+				<br/>
 			
 				<p:dataTable 
 						id="tblListaUsuarios" 
 						value="#{mbGestionUsuarios.listaUsuarios}" var="usuario"
 						emptyMessage="No exixten registro para mostrar">
+						
 					<p:column headerText="Nombre de Usuario">
 						<h:outputText value="#{usuario.loginUsuario}" />
 					</p:column>
@@ -86,7 +88,7 @@
 			</p:panel>
 			
 			<!-- Adicionar/Editar Usuario -->
-			<p:dialog id="dlgAddEditUsuario" modal="true" header="Nuevo Usuario">
+			<p:dialog id="dlgAddEditUsuario" widgetVar="wdgAddEditUsuario" modal="true" header="Nuevo Usuario">
 				<h:panelGrid id="pnlAddEditUsuario" columns="3" cellspacing="4">
 					<p:outputLabel for="txtLoginUsuario" value="Nombre de Usuario:" />
 					<p:inputText id="txtLoginUsuario" value="#{mbGestionUsuarios.usuario.loginUsuario}" />
@@ -96,11 +98,40 @@
 					<p:inputText id="txtNombreUsuario" value="#{mbGestionUsuarios.usuario.persona.nombres}" />
 					<p:message for="txtNombreUsuario" />
 					
+					<p:outputLabel for="txtEmail" value="Correo Electronico:" />
+					<p:inputText id="txtEmail" value="#{mbGestionUsuarios.usuario.correoElectronico}" />
+					<p:message for="txtEmail" />
+					
 					<p:outputLabel for="txtApellidosUsuario" value="Apellidos:" />
 					<p:inputText id="txtApellidosUsuario" value="#{mbGestionUsuarios.usuario.persona.apellidos}" />
 					<p:message for="txtApellidosUsuario" />
 					
+					<p:outputLabel for="slcTipoDocumento" value="Tipo Documento:" />
+					<p:selectOneMenu id="slcTipoDocumento" value="#{mbGestionUsuarios.usuario.persona.tipoDocumento}">
+						<f:selectItem value="Seleccione..."/>
+						<f:selectItems value="#{mbGestionUsuarios.tipoDocs}" />
+					</p:selectOneMenu>
+					<p:message for="slcTipoDocumento" />
 					
+					<p:outputLabel for="txtNroDocumento" value="Numero Documento:" />
+					<p:inputText id="txtNroDocumento" value="#{mbGestionUsuarios.usuario.persona.nroDocumento}" />
+					<p:message for="txtNroDocumento" />
+					
+					<p:outputLabel for="slcExpedido" value="Expedido:" />
+					<p:selectOneMenu id="slcExpedido" value="#{mbGestionUsuarios.usuario.persona.expedido}">
+						<f:selectItem value="Seleccione..."/>
+						<f:selectItems value="#{mbGestionUsuarios.mapExpedidos}" />
+					</p:selectOneMenu>
+					<p:message for="slcExpedido" />
+					
+					
+					<f:facet name="footer">
+						<p:commandButton value="Adicionar" process="dlgAddEditUsuario" actionListener="#{mbGestionUsuarios.eventoCrearUsuario}" oncomplete="PF('wdgAddEditUsuario').hide()"  />
+						<span class="ui-separator">
+			                <span class="ui-icon ui-icon-grip-dotted-vertical" />
+			            </span>
+			            <p:commandButton value="Cancelar" type="button" onclick="PF('wdgAddEditUsuario').hide()" />
+					</f:facet>
 				</h:panelGrid>
 			</p:dialog>
 		</h:form>

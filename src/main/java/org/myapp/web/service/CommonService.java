@@ -16,17 +16,17 @@ public class CommonService {
 	@Inject
 	private ParametroDao daoParametro;
 	
-	public HashMap<String, String> getListaTipoDocumentos() {
+	public HashMap<String, String> getMapParametros(CodigoParametro codigoParametro) {
 		List<Parametro> listParametros;
-		HashMap<String, String> mapTipoDocs = new HashMap<String, String>();
+		HashMap<String, String> mapParametros = new HashMap<String, String>();
 		
-		listParametros = this.daoParametro.selectByCode(CodigoParametro.TIPO_DOCUMENTO);
+		listParametros = this.daoParametro.selectByCode(codigoParametro);
 		
 		for(Parametro parametro : listParametros) {
-			mapTipoDocs.put(parametro.getValorParametro(), parametro.getDescParametro());
+			mapParametros.put(parametro.getValorParametro(), parametro.getDescParametro());
 		}
 		
-		return mapTipoDocs;
+		return mapParametros;
 	}
 	
 }
